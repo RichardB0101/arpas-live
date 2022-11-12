@@ -53,7 +53,7 @@
                         </div>
                         </br>
 
-                        <p class="text-center text-primary">Nie pamiętasz hasła?</p>
+                        <p class="text-center text-primary">Nie pamiętasz hasła?TEST</p>
                     </div>
                 </form>
             </div>
