@@ -23,22 +23,12 @@ class DatabaseSeeder extends Seeder
 //         \App\Models\User::factory(10)->create();
 //
          User::factory()->create([
-             'name' => 'Test User',
+             'name' => 'Karol Narkiewicz',
              'email' => 'test@example.com',
              'password' => bcrypt('123123123')
          ]);
 
-        Assignment::create([
-            'name' => 'Praca domowa1',
-
-        ]);
-        Assignment::create([
-            'name' => 'Praca domowa2',
-
-        ]);
-        Assignment::create([
-            'name' => 'Praca domowa3',
-        ]);
+        Assignment::factory(50)->create();
 
 
 

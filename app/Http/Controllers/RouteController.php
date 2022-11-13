@@ -9,12 +9,21 @@ class RouteController extends Controller
 {
     public function index(){
         $prace = Assignment::get();
+        $status = [
+            'success' => 'Zatwierdzone',
+            'danger' => 'Niezaliczone',
+            'secondary' => 'Do oceny'
+        ];
         return view('wykladowca_katalog_prac', [
-            'prace' => $prace
+            'prace' => $prace,
+            'status' => $status
             ]);
     }
     public function viewOcenianiePrac(){
-        return view('wykladowca_ocenianie_prac');
+        $prace = Assignment::get();
+        return view('wykladowca_ocenianie_prac', [
+            'prace' => $prace,
+        ]);
     }
     public function showDomowa(){
         return view('wykladowca_domowa');

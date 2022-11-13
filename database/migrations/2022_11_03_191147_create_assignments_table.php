@@ -17,7 +17,12 @@ return new class extends Migration
             $table->id();
 //            $table->foreignId('student_id')->constrained();
 //            $table->foreignId('subject_id')->constrained();
-            $table->string('name');
+            $table->string('title');
+            //bad example, actually you have to do it within other column and join tables to get this data
+            $table->string('author_name');
+            $table->string('author_kierunek');
+            $table->integer('author_study_year');
+            $table->integer('grade');
             $table->timestamps();
         });
     }

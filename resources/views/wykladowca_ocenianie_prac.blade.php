@@ -9,7 +9,7 @@
     <div class="container bg-dark w-50 p-5 m-5" >
         <p class="text-white text-center">&lt;podgląd pracy&gt;</p>
     </div>
-    
+
     {{--    Form --}}
 
     <div class="w-50">
@@ -20,18 +20,18 @@
             <label for="disabledSelect" class="form-label">Autor:</label>
             <select id="disabledSelect" class="form-select">
                 <option>Jan Kowalski</option>
-                @for ($i = 1; $i < 24; $i++)
-                    <option>Student {{ $i }}</option>
-                @endfor
+                @foreach($prace as $praca)
+                    <option>{{ $praca->author_name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="mb-3">
             <label for="disabledSelect" class="form-label">Nazwa pracy:</label>
             <select id="disabledSelect" class="form-select">
-                <option>Sprawozdanie Techniki Uczenia Maszyn</option>
-                @for ($i = 1; $i < 12; $i++)
-                    <option>Praca nr.{{ $i }}</option>
-                @endfor
+                <option>Sprawozdanie: Techniki Uczenia Maszyn</option>
+                @foreach($prace as $praca)
+                    <option>{{ $praca->title }}</option>
+                @endforeach
             </select>
         </div>
         <div class="mb-3">
