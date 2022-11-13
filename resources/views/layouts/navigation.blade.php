@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('wykladowca.katalog_prac')" :active="request()->routeIs('wykladowca.katalog_prac')">
+                        {{ __('ARPAS Katalog Prac') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('wykladowca.ocena_prac')" :active="request()->routeIs('wykladowca.ocena_prac')">
+                        {{ __('ARPAS Ocena Prac') }}
+                    </x-nav-link>
                 </div>
             </div>
 
