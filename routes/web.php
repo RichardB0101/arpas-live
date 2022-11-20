@@ -24,16 +24,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-//Arpas stronki
+//Zalogowany wykladowca
 Route::middleware(['auth'])->group(function () {
-    Route::get('/wykladowca', [RouteController::class, 'index'])->name('wykladowca.katalog_prac');
+    Route::get('/katalogi-prac/katalog', [RouteController::class, 'index'])->name('wykladowca.katalog_prac');
     Route::get('/ocena-prac', [RouteController::class, 'viewOcenianiePrac'])->name('wykladowca.ocena_prac');;
+    Route::view('/katalogi-prac', 'wykladowca_katalogi_prac')->name('wykladowca.katalogi_prac');;
 });
 
 Route::get('/prace/{prace}', function (Assignment $prace){
     return view('demo', [compact('prace')]);
 })->name('praca');
 
-Route::view('/test', 'wykladowca_domowa');
+
+
+
 
 require __DIR__.'/auth.php';
