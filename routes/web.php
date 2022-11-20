@@ -27,8 +27,8 @@ Route::get('/dashboard', function () {
 //Zalogowany wykladowca
 Route::middleware(['auth'])->group(function () {
     Route::get('/katalogi-prac/katalog', [RouteController::class, 'index'])->name('wykladowca.katalog_prac');
-    Route::get('/ocena-prac', [RouteController::class, 'viewOcenianiePrac'])->name('wykladowca.ocena_prac');;
-    Route::view('/katalogi-prac', 'wykladowca_katalogi_prac')->name('wykladowca.katalogi_prac');;
+    Route::get('/ocena-prac', [RouteController::class, 'viewOcenianiePrac'])->name('wykladowca.ocena_prac');
+    Route::view('/katalogi-prac', 'wykladowca_katalogi_prac')->name('wykladowca.katalogi_prac');
 });
 
 Route::get('/prace/{prace}', function (Assignment $prace){

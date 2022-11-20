@@ -12,7 +12,7 @@
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="@yield('body-class')">
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark fixed-top">
     <!-- Navbar Brand-->
     <a class="navbar-brand ps-3" href="{{ route('dashboard') }}">ARPAS</a>
 

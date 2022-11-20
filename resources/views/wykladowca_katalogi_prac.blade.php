@@ -11,8 +11,21 @@
             Wszystkie katalogi
         </div>
         <div class="card-body">
-            <div class="album py-5 bg-light">
+            <div class="album pb-5 bg-light">
                 <div class="container">
+                        <div class="d-flex p-0 justify-content-between align-items-center container mb-3">
+                            <div class="btn-group-sm">
+                                <a href="{{ route('wykladowca.katalog_prac') }}"><button type="button" class="btn btn-sm btn-outline-secondary" style="font-size: 1rem;"><i class="fa-solid fa-folder-plus text-dark me-2" style="font-size: 1.5rem;"></i>Dodaj nowy katalog</button></a>
+                            </div>
+                            <div>
+                                <form class="d-none d-md-inline-block form-inline ms-auto me-0 my-2 my-md-0">
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" placeholder="Szukaj" aria-label="Szukaj" aria-describedby="btnNavbarSearch" />
+                                        <button class="btn btn-dark" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
                         @for($i = 1; $i <= 12; $i++ )
                             <div class="col">
