@@ -24,11 +24,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-Route::get('/home', function () {
-    return view('home')->name('home');
-});
-
-
 //Arpas stronki
 Route::middleware(['auth'])->group(function () {
     Route::get('/wykladowca', [RouteController::class, 'index'])->name('wykladowca.katalog_prac');
