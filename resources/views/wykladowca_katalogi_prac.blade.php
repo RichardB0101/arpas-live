@@ -15,7 +15,7 @@
                 <div class="container">
                         <div class="d-flex p-0 justify-content-between align-items-center container mb-3">
                             <div class="btn-group-sm">
-                                <a href="{{ route('wykladowca.katalog_prac') }}"><button type="button" class="btn btn-sm btn-outline-secondary" style="font-size: 1rem;"><i class="fa-solid fa-folder-plus text-dark me-2" style="font-size: 1.5rem;"></i>Dodaj nowy katalog</button></a>
+                                <a href="{{ route('wykladowca.dodanie_katalogu') }}"><button type="button" class="btn btn-sm btn-outline-secondary" style="font-size: 1rem;"><i class="fa-solid fa-folder-plus text-dark me-2" style="font-size: 1.5rem;"></i>Dodaj nowy katalog</button></a>
                             </div>
                             <div>
                                 <form class="d-none d-md-inline-block form-inline ms-auto me-0 my-2 my-md-0">
