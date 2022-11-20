@@ -34,7 +34,6 @@ Route::get('/prace/{prace}', function (Assignment $prace){
     return view('demo', [compact('prace')]);
 })->name('praca');
 
+Route::view('/test', 'wykladowca_domowa');
+
 require __DIR__.'/auth.php';
-
-
-

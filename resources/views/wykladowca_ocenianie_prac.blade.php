@@ -1,8 +1,8 @@
-@extends('layouts.arpas-home')
+@extends('layouts.arpas_dark')
 
 
-@section('main_content')
-    <h2 class="text-center mb-5">Ocenianie prac (wykładowca)</h2>
+@section('content')
+    <h2 class="text-center my-5">Ocenianie prac (wykładowca)</h2>
     <hr>
     <div class="container d-flex">
 
