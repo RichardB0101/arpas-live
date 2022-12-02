@@ -9,12 +9,12 @@
 
                 <div class="container d-flex justify-content-center">
                     <div class="w-50">
-                        <form>
+                        <form action="{{ route('save_catalog') }}" method="post">
                             @csrf
                             <legend>Panel dodania katalogu</legend>
                             <div class="mb-3">
-                                <label for="disabledSelect" class="form-label">Nazwa katalogu:</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <label for="disabledSelect" class="form-label" >Nazwa katalogu:</label>
+                                <input type="text" class="form-control" placeholder="" name="catalogName">
                             </div>
                             <div class="mb-3">
                                 <label for="disabledSelect" class="form-label">Przedmiot:</label>

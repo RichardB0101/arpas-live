@@ -27,14 +27,14 @@
                             </div>
                         </div>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-                        @for($i = 1; $i <= 12; $i++ )
+                        @foreach($catalogs as $catalog)
                             <div class="col">
                                 <div class="card shadow-sm">
 
                                     <div class="card-body">
 
                                         <p class="card-text my-4" style="font-size: 1.5em">
-                                            <i class="fa-solid fa-folder me-2" style="font-size: 2em"></i>Katalog {{$i}}
+                                            <i class="fa-solid fa-folder me-2" style="font-size: 2em"></i>{{ $catalog->name }}
                                         </p>
 
                                         <div class="d-flex justify-content-between align-items-center">
@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
             </div>
