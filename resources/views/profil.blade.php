@@ -12,7 +12,7 @@
                         <div class="card-body text-center">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
                                  alt="avatar"
-                                 class="rounded-circle img-fluid" style="width: 150px;">
+                                 class="rounded-circle img-fluid" style="width: 150px; aspect-ratio: 1;">
                             <h5 class="my-3">{{ Auth::user()->name }}</h5>
                             <p class="text-muted mb-1">Administrator</p>
                             <p class="text-muted mb-4">Uniwersytet w Białymstoku</p>
