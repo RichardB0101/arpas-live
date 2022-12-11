@@ -28,4 +28,8 @@ class RouteController extends Controller
     public function showDomowa(){
         return view('wykladowca_domowa');
     }
+
+    public function showProfil(){
+        return view('profil');
+    }
 }

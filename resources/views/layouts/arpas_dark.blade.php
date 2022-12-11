@@ -29,6 +29,7 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="text-gray me-2" id="">{{ Auth::user()->name }}</span><i class="fas fa-user fa-fw"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="{{ route('profil') }}">Profil</a></li>
                 <li><a class="dropdown-item" href="{{ route('wykladowca.katalogi_prac') }}">Katalogi prac</a></li>
                 <li><a class="dropdown-item" href="{{ route('wykladowca.ocena_prac') }}">Ocena prac</a></li>
                 <li><a class="dropdown-item" href="#">Ustawienia</a></li>

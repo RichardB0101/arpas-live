@@ -27,14 +27,24 @@
                             </div>
                         </div>
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-                        @foreach($catalogs as $catalog)
+                        @if(isset($catalogs))
+                         @foreach($catalogs as $catalog)
                             <div class="col">
                                 <div class="card shadow-sm">
 
                                     <div class="card-body">
+                                        <div class="btn-group w-100 d-flex justify-content-end">
+                                            <div>
+                                                <form action="{{ route('del_catalog', $catalog->id) }}" method="post">
+                                                    @csrf
+                                                    <input type="hidden" value="{{ $catalog->id }}">
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+                                                </form>
+                                            </div>
+                                        </div>
 
                                         <p class="card-text my-4" style="font-size: 1.5em">
-                                            <i class="fa-solid fa-folder me-2" style="font-size: 2em"></i>{{ $catalog->name }}
+                                            <i class="fa-solid fa-folder me-2" style="font-size: 1.5em"></i>{{ $catalog->name }}
                                         </p>
 
                                         <div class="d-flex justify-content-between align-items-center">
@@ -48,6 +58,7 @@
                                 </div>
                             </div>
                         @endforeach
+                       @endif
                     </div>
                 </div>
             </div>

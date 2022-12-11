@@ -27,13 +27,16 @@ Route::get('/dashboard', function () {
 
 //Zalogowany wykladowca
 Route::middleware(['auth'])->group(function () {
+    Route::get('/profil', [RouteController::class, 'showProfil'])->name('profil');
+
+
     Route::get('/katalogi-prac/katalog', [RouteController::class, 'index'])->name('wykladowca.katalog_prac');
     Route::get('/ocena-prac', [RouteController::class, 'viewOcenianiePrac'])->name('wykladowca.ocena_prac');
     Route::get('/katalogi-prac', [CatalogController::class, 'index'])->name('wykladowca.katalogi_prac');
     Route::view('/dodanie-katalogu', 'wykladowca_dodanie_katalogu')->name('wykladowca.dodanie_katalogu');
 
     Route::post('/saveCatalog', [CatalogController::class, 'make'])->name('save_catalog');
-
+    Route::post('/delCatalog/{id}', [CatalogController::class, 'delete'])->name('del_catalog');
 });
 
 Route::get('/prace/{prace}', function (Assignment $prace){
