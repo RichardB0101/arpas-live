@@ -14,7 +14,7 @@
                                  alt="avatar"
                                  class="rounded-circle img-fluid" style="width: 150px; aspect-ratio: 1;">
                             <h5 class="my-3">{{ Auth::user()->name }}</h5>
-                            <p class="text-muted mb-1">Administrator</p>
+                            <p class="text-muted mb-1">{{ ucfirst(Auth::user()->role) }}</p>
                             <p class="text-muted mb-4">Uniwersytet w Białymstoku</p>
                             <div class="d-flex justify-content-center mb-2">
                                 <button type="button" class="btn btn-primary">Ustawienia</button>
@@ -22,6 +22,7 @@
                             </div>
                         </div>
                     </div>
+                    @if( Auth::user()->role === 'student')
                     <div class="card mb-4 mb-lg-0 shadow bg-body rounded">
                         <div class="card-body p-0">
                             <ul class="list-group list-group-flush rounded-3">
@@ -38,6 +39,7 @@
                             </ul>
                         </div>
                     </div>
+                    @endif
                 </div>
                 <div class="col-lg-8 ">
                     <div class="card mb-4 shadow bg-body rounded">
@@ -88,6 +90,7 @@
                             </div>
                         </div>
                     </div>
+                    @if( Auth::user()->role === 'student')
                     <div class="row">
                         <div class="col-md-6 ">
                             <div class="card mb-4 mb-md-0 shadow bg-body rounded">
@@ -169,6 +172,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>

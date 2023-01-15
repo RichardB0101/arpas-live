@@ -44,7 +44,11 @@
                                         <td>{{ $praca->author_kierunek ?? '' }}</td>
                                         <td>{{ rand(1, 3) }}</td>
                                         <td>{{ rand(1, 10) }}</td>
-                                        <th><button class="btn btn-primary">Przejdź</button></th>
+                                        <form action="{{ route('wykladowca.ocena_prac') }}" method="GET">
+                                           @csrf
+                                            <a href="{{ route('wykladowca.ocena_prac') }}">                                        <th><button type="submit" class="btn btn-primary">Oceń</button></th></a>
+
+                                        </form>
 
                                     </tr>
                                 @endforeach

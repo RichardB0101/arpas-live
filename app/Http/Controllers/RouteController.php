@@ -26,10 +26,11 @@ class RouteController extends Controller
         ]);
     }
     public function showDomowa(){
-        return view('wykladowca_domowa');
+        return view('strona_domowa');
     }
 
     public function showProfil(){
         return view('profil');
     }
+
 }
