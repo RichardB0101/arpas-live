@@ -22,6 +22,7 @@ class AssignmentFactory extends Factory
             'author_kierunek' => fake()->randomElement(['Informatyka' ,'Ekonomia', 'Europeistyka']),
             'grade' => fake()->numberBetween(1, 10),
             'author_study_year' => fake()->numberBetween(1, 3),
+            'author_id' => fake()->numberBetween(1, 100),
         ];
     }
 }

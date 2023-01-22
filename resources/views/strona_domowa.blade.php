@@ -235,8 +235,10 @@
                 <div class=" mb-4">
                     <div class="h-100 d-flex justify-content-center align-items-center">
                         <div class="px-2">
-                            <i class="fa-solid fa-file-circle-plus fa-8x"></i>
-                            <div class="text-lg fw-bold text-center">Dodanie pracy</div>
+                            <a href="{{ route("student.dodanie_prac") }}">
+                                <i class="fa-solid fa-file-circle-plus fa-8x"></i>
+                                <div class="text-lg fw-bold text-center">Dodanie pracy</div>
+                            </a>
                         </div>
                         <div class="px-2">
                             <i class="fa-solid fa-address-card fa-8x"></i>

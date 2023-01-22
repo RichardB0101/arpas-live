@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('123123123')
         ]);
 
-        Assignment::factory(500)->create();
+            Assignment::factory(100)->create();
 
 
 

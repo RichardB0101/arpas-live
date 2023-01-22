@@ -21,6 +21,7 @@
                                 <th>Kierunek</th>
                                 <th>Rok</th>
                                 <th>Ocena</th>
+                                <th></th>
 
                             </tr>
                             </thead>
@@ -31,6 +32,8 @@
                                 <th>Kierunek</th>
                                 <th>Rok</th>
                                 <th>Ocena</th>
+                                <th></th>
+
 
                             </tr>
                             </tfoot>
@@ -39,16 +42,18 @@
                                 @foreach($prace as $praca)
                                     <tr>
 
-                                        <td>{{ $praca->title}} <span class="ms-1 badge bg-{{ $test = array_rand($status, 1) }}">{{ $status[$test]  }}</span></td>
+                                        <td>{{ $praca->title }} <span class="ms-1 badge bg-{{ $test = array_rand($status, 1) }}">{{ $status[$test]  }}</span></td>
                                         <td>{{ $praca->author_name ?? '' }}</td>
                                         <td>{{ $praca->author_kierunek ?? '' }}</td>
                                         <td>{{ rand(1, 3) }}</td>
-                                        <td>{{ rand(1, 10) }}</td>
-                                        <form action="{{ route('wykladowca.ocena_prac') }}" method="GET">
-                                           @csrf
-                                            <a href="{{ route('wykladowca.ocena_prac') }}">                                        <th><button type="submit" class="btn btn-primary">Oceń</button></th></a>
-
+                                        <td>{{ $praca->grade ?? rand(1, 10) }}</td>
+                                        <td>
+                                        <form method="POST" action="{{ route('wykladowca.ocena_prac') }}">
+                                            @csrf
+                                            <input type="hidden" name="assignmentId" value="{{ $praca->id }}">
+                                            <button type="submit" class="btn btn-primary">Oceń</button>
                                         </form>
+                                        </td>
 
                                     </tr>
                                 @endforeach

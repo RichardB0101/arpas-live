@@ -25,15 +25,20 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-//Zalogowany wykladowca
+//Zalogowany student
 Route::middleware(['auth'])->group(function () {
     Route::get('/profil', [RouteController::class, 'showProfil'])->name('profil');
     Route::get('/', [RouteController::class, 'showDomowa'])->name('domowa');
+
+    //DODANIE PRACY STUDENT
+    Route::get('/student-dodanie-prac', [RouteController::class, 'showDodaniePrac'])->name('student.dodanie_prac');
+    Route::post('/dodanie-do-bazy-danych', [RouteController::class, 'dodaniePracDoBazyDanych'])->name('student.dodanie_do_bazy_danych');
 });
 
 // Nauczyciel
 Route::middleware(['auth', 'user.role'])->group(function () {
-    Route::get('/ocena-prac', [RouteController::class, 'viewOcenianiePrac'])->name('wykladowca.ocena_prac');
+    Route::post('/ocena-prac', [RouteController::class, 'viewOcenianiePrac'])->name('wykladowca.ocena_prac');
+    Route::post('/ocenianie-do-bazy-danych', [RouteController::class, 'ocenianiePracDoBazyDanych'])->name('wykladowca.ocenianie_do_bazy_danych');
     Route::view('/dodanie-katalogu', 'wykladowca_dodanie_katalogu')->name('wykladowca.dodanie_katalogu');
     Route::get('/katalogi-prac/katalog', [RouteController::class, 'index'])->name('wykladowca.katalog_prac');
     Route::get('/katalogi-prac', [CatalogController::class, 'index'])->name('wykladowca.katalogi_prac');

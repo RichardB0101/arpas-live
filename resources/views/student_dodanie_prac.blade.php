@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container p-5">
-    <h1 class="my-4 text-center">Ocenianie prac</h1>
+    <h1 class="my-4 text-center">Dodanie prac</h1>
     <div class="card mb-4">
         <div class="card-body">
 
@@ -16,30 +16,33 @@
                 {{--    Form --}}
 
                 <div class="w-50">
-                    <form method="POST" action="{{ route('wykladowca.ocenianie_do_bazy_danych') }}">
+                    <form method="POST" action="{{ route('student.dodanie_do_bazy_danych') }}">
                         @csrf
-                        <legend>Panel oceny prac</legend>
+                        <legend>Panel dodania prac</legend>
                         <div class="mb-3">
                             <label for="disabledSelect" class="form-label">Autor:</label>
-                            <select id="disabledSelect" class="form-select">
-                                <option>{{ $prace->author_name }}</option>
+                            <select name="author" id="disabledSelect" class="form-select">
+                                <option>{{ Auth::user()->name }}</option>
                             </select>
+                            <input type="hidden"  name="author_id" value="{{ Auth::user()->id }}">
                         </div>
                         <div class="mb-3">
                             <label for="disabledSelect" class="form-label">Nazwa pracy:</label>
-                            <select id="disabledSelect" class="form-select">
-                                <option>{{ $prace->title }}</option>
-                            </select>
+                            <input name="title" id="disabledSelect" class="form-control"> {{-- TODO: Add name   --}}
                         </div>
                         <div class="mb-3">
                             <label for="disabledSelect" class="form-label">Katalog:</label>
-                            <select id="disabledSelect" class="form-select">
+                            <select name="subject_category" id="disabledSelect" class="form-select">
                                 <option>Techniki Uczenia Maszyn</option>
+                                <option>Zaawansowane aplikacje mobilne</option>
+                                @for ($i = 1; $i < 12; $i++)
+                                    <option>Katalog {{ $i }}</option>
+                                @endfor
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="disabledSelect" class="form-label">Rodzaj:</label>
-                            <select id="disabledSelect" class="form-select">
+                            <select name="type" id="disabledSelect" class="form-select">
                                 <option>Sprawdzian</option>
                                 <option>Egzamin</option>
                                 <option>Kartkówka</option>
@@ -48,23 +51,19 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Opis pracy</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                            <label for="formFileMultiple" class="form-label">Dodaj pliki</label>
+                            <input name="attached_files" class="form-control" type="file" id="formFileMultiple" multiple>
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Ocena</label>
-                            <input name="grade" type="number" class="form-control" id="exampleFormControlInput1" value="{{ $prace->grade ?? '' }}">
+                            <label for="exampleFormControlTextarea1" class="form-label">Opis pracy</label>
+                            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Komentarz (studenta)</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" disabled></textarea>
+                            <textarea name="student_comment" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleFormControlTextarea1" class="form-label">Uwagi oceniającego (wykladowcy)*</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <input type="hidden"  name="assignment_id" value="{{ $prace->id }}">
-                        <button type="submit" class="btn btn-primary">Ocenić pracę</button>
+
+                        <button type="submit" class="btn btn-primary">Wysłać pracę</button>
 
                     </form>
                 </div>

@@ -15,14 +15,18 @@ return new class extends Migration
     {
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(new \App\Models\User, 'author_id');;
 //            $table->foreignId('student_id')->constrained();
 //            $table->foreignId('subject_id')->constrained();
             $table->string('title');
             //bad example, actually you have to do it within other column and join tables to get this data
             $table->string('author_name');
-            $table->string('author_kierunek');
-            $table->integer('author_study_year');
-            $table->integer('grade');
+            $table->text('description')->default('');
+
+//            $table->integer('author_id');
+            $table->string('author_kierunek')->default('');
+            $table->integer('author_study_year')->default(0);
+            $table->integer('grade')->default(0);
             $table->timestamps();
         });
     }
