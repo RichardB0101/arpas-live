@@ -10,9 +10,11 @@
                 <div class="col-lg-4 ">
                     <div class="card mb-4 shadow bg-body rounded">
                         <div class="card-body text-center">
-                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                                 alt="avatar"
-                                 class="rounded-circle img-fluid" style="width: 150px; aspect-ratio: 1;">
+                            <div class="d-flex justify-content-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                     alt="avatar"
+                                     class="rounded-circle img-fluid" style="width: 150px; aspect-ratio: 1;">
+                            </div>
                             <h5 class="my-3">{{ Auth::user()->name }}</h5>
                             <p class="text-muted mb-1">{{ ucfirst(Auth::user()->role) }}</p>
                             <p class="text-muted mb-4">Uniwersytet w Białymstoku</p>
@@ -27,15 +29,21 @@
                         <div class="card-body p-0">
                             <ul class="list-group list-group-flush rounded-3">
                                 <p class="text-center mt-3">Ostatnio wysłane</p>
-                                @for($i = 1; $i <= 4; $i++)
+                                @foreach($assignments as $assignment)
                                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                         <i class="fa-solid fa-book"></i>
                                         <div class="d-flex flex-row">
-                                            <p class="mb-0 me-2">Praca kontrolna nr.{{ $i }}</p>
-                                            <span class="badge bg-secondary">Do oceny</span>
+                                            <p class="mb-0 me-2">{{ $assignment->title }}</p>
+                                            @if(!$assignment->grade)
+                                                <span class="badge bg-secondary">Do oceny</span>
+                                            @elseif($assignment->grade > 4)
+                                                <span class="badge bg-success">Zaliczone</span>
+                                            @else
+                                                <span class="badge bg-danger">Niezaliczone</span>
+                                            @endif
                                         </div>
                                     </li>
-                                @endfor
+                                @endforeach
                             </ul>
                         </div>
                     </div>

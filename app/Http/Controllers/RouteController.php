@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Assignment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RouteController extends Controller
 {
@@ -26,11 +27,21 @@ class RouteController extends Controller
         ]);
     }
     public function showDomowa(){
-        return view('strona_domowa');
+        $studentsCount = Assignment::distinct('author_name')->count();
+        $assignmentsToCheckCount = Assignment::where('grade', '=', 0)->count();;
+        $notPassCount = Assignment::where('grade', '>=', 4)->count();
+        $passCount = Assignment::where('grade', '<=', 4)->count();
+
+//        dd($studCount);
+        return view('strona_domowa', [
+            'dashboardData' => compact('studentsCount', 'assignmentsToCheckCount', 'notPassCount', 'passCount')
+        ]);
     }
 
     public function showProfil(){
-        return view('profil');
+        $assignments = Assignment::where('author_name', '=', Auth::user()->name)->latest()->limit(5)->get();
+        return view('profil', compact('assignments'));
+
     }
 
     public function showDodaniePrac(){

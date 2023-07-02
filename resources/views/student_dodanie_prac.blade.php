@@ -56,7 +56,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Opis pracy</label>
-                            <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea required name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="exampleFormControlTextarea1" class="form-label">Komentarz (studenta)</label>

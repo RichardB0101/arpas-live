@@ -37,7 +37,7 @@ Route::middleware(['auth'])->group(function () {
 
 // Nauczyciel
 Route::middleware(['auth', 'user.role'])->group(function () {
-    Route::post('/test', [RouteController::class, 'viewOcenianiePrac']);
+    Route::view('/test', 'test');
 
     Route::post('/ocena-prac', [RouteController::class, 'viewOcenianiePrac'])->name('wykladowca.ocena_prac');
     Route::post('/ocenianie-do-bazy-danych', [RouteController::class, 'ocenianiePracDoBazyDanych'])->name('wykladowca.ocenianie_do_bazy_danych');
